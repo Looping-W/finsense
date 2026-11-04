@@ -1,0 +1,12 @@
+node_modules/
+dist/
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+venv/
+.env
+
+# ai协作
+docs/
+AGENTS.md

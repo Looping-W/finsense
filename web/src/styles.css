@@ -1,0 +1,238 @@
+:root {
+  --ink: #1c2b33;
+  --paper: #e4edf1;
+  --card: #f7fbfc;
+  --rule: #c5d3db;
+  --stamp: #b4232c;
+  --teal: #0f6e6a;
+  --muted: #5c6f78;
+  --display: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --body: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --mono: "IBM Plex Mono", "Cascadia Mono", ui-monospace, monospace;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--teal);
+}
+
+.auth,
+.desk {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem 1rem;
+}
+
+.sheet {
+  width: min(40rem, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7.5rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  box-shadow: 0 16px 40px rgb(28 43 51 / 6%);
+}
+
+.sheet-main {
+  padding: 2rem 2rem 1.75rem;
+}
+
+.sheet-plain {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.brand {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0.35rem 0 0.4rem;
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.lede,
+.quiet {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.field span {
+  font-size: 0.85rem;
+}
+
+.field input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
+  padding: 0.55rem 0;
+}
+
+.field input:focus-visible {
+  outline: none;
+  border-bottom-color: var(--teal);
+  box-shadow: inset 0 -1px 0 var(--teal);
+}
+
+.form-error {
+  min-height: 1.5rem;
+  margin: 0 0 0.75rem;
+  color: var(--stamp);
+  font-size: 0.92rem;
+}
+
+.button {
+  border: none;
+  background: var(--ink);
+  color: var(--card);
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.button:focus-visible,
+.button-quiet:focus-visible,
+.switch a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.switch {
+  margin: 1rem 0 0;
+}
+
+.amount-col {
+  border-left: 1px solid var(--rule);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 1.75rem,
+    var(--rule) 1.75rem,
+    var(--rule) calc(1.75rem + 1px)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 1.4rem;
+}
+
+.col-head {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  background: var(--card);
+  padding: 0 0.35rem;
+}
+
+.seal {
+  width: 4.6rem;
+  height: 4.6rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--stamp);
+  border-radius: 50%;
+  color: var(--stamp);
+  background: rgb(247 251 252 / 88%);
+  box-shadow: inset 0 0 0 1px var(--stamp);
+  transform: rotate(-8deg);
+  font-family: var(--display);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+.desk {
+  align-items: start;
+}
+
+.desk-inner {
+  width: min(40rem, 100%);
+  margin-top: 8vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.button-quiet {
+  border: none;
+  background: transparent;
+  color: var(--teal);
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+
+.ledger-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--rule);
+  padding: 0.75rem 0;
+}
+
+.ledger-row b {
+  font-weight: 500;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+@media (max-width: 640px) {
+  .sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .amount-col {
+    order: -1;
+    flex-direction: row;
+    border-left: none;
+    border-bottom: 1px solid var(--rule);
+    min-height: 5.5rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .sheet-main {
+    padding: 1.4rem 1.2rem 1.4rem;
+  }
+}
